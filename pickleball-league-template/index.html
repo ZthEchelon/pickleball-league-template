@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Score Entry</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { padding: 10px; margin: 5px; }
+    .result { margin-top: 20px; padding: 10px; background: #f0f0f0; }
+  </style>
+</head>
+<body>
+
+  <h2>Enter Match Score</h2>
+
+  <div>
+    <label>Team 1 Player A:</label>
+    <input id="p1a" type="text"><br>
+
+    <label>Team 1 Player B:</label>
+    <input id="p1b" type="text"><br>
+
+    <label>Team 2 Player A:</label>
+    <input id="p2a" type="text"><br>
+
+    <label>Team 2 Player B:</label>
+    <input id="p2b" type="text"><br>
+
+    <label>Score (Team 1):</label>
+    <input id="s1" type="number"><br>
+
+    <label>Score (Team 2):</label>
+    <input id="s2" type="number"><br>
+
+    <button onclick="submitScore()">Submit Score</button>
+  </div>
+
+  <div class="result" id="result"></div>
+
+<script>
+  function submitScore() {
+    const p1a = document.getElementById("p1a").value;
+    const p1b = document.getElementById("p1b").value;
+    const p2a = document.getElementById("p2a").value;
+    const p2b = document.getElementById("p2b").value;
+    const s1 = parseInt(document.getElementById("s1").value);
+    const s2 = parseInt(document.getElementById("s2").value);
+
+    if (isNaN(s1) || isNaN(s2)) {
+      document.getElementById("result").innerHTML = "Enter valid scores.";
+      return;
+    }
+
+    let winner;
+    if (s1 > s2) winner = `${p1a} & ${p1b}`;
+    else winner = `${p2a} & ${p2b}`;
+
+    const resultText = `
+      <strong>Match Result:</strong><br>
+      ${p1a} & ${p1b}: ${s1}<br>
+      ${p2a} & ${p2b}: ${s2}<br><br>
+
+      <strong>Winner:</strong> ${winner}<br><br>
+
+      <strong>Player Points:</strong><br>
+      ${p1a}: ${s1} pts<br>
+      ${p1b}: ${s1} pts<br>
+      ${p2a}: ${s2} pts<br>
+      ${p2b}: ${s2} pts
+    `;
+
+    document.getElementById("result").innerHTML = resultText;
+  }
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+</body>
+</html>

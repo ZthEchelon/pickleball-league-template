@@ -1,0 +1,26 @@
+{
+  "season_id": "winter_2025",
+  "weeks": [
+    {
+      "week_number": 1,
+      "date": "2025-10-12",
+      "status": "ongoing",
+      "groups": [
+        {
+          "group_id": "A",
+          "player_ids": ["p1","p2","p3","p4"],
+          "matches": [
+            { "match_id": "m1", "team_1": ["p1","p2"], "team_2": ["p3","p4"], "scores": [11,2] },
+            { "match_id": "m2", "team_1": ["p1","p3"], "team_2": ["p2","p4"], "scores": [11,5] }
+          ]
+        }
+      ]
+    }
+  ],
+  "players": [
+    {"id":"p1","name":"Alice"},
+    {"id":"p2","name":"Bob"},
+    {"id":"p3","name":"Charlie"},
+    {"id":"p4","name":"Dana"}
+  ]
+}
